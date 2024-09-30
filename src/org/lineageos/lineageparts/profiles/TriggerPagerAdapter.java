@@ -92,6 +92,7 @@ public class TriggerPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(final int position) {
+        final Holder mCurrentHolder = mHolderList.get(position);
         return Fragment.instantiate(mFragmentActivity,
                 mCurrentHolder.mClassName, mCurrentHolder.mParams);
     }
