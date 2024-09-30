@@ -17,6 +17,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
 import org.lineageos.lineageparts.R;
+import org.lineageos.lineageparts.profiles.triggers.AppTriggerFragment;
 import org.lineageos.lineageparts.profiles.triggers.BluetoothTriggerFragment;
 import org.lineageos.lineageparts.profiles.triggers.NfcTriggerFragment;
 import org.lineageos.lineageparts.profiles.triggers.TimeTriggerFragment;
@@ -91,7 +92,6 @@ public class TriggerPagerAdapter extends FragmentPagerAdapter {
     @NonNull
     @Override
     public Fragment getItem(final int position) {
-        final Holder mCurrentHolder = mHolderList.get(position);
         return Fragment.instantiate(mFragmentActivity,
                 mCurrentHolder.mClassName, mCurrentHolder.mParams);
     }
@@ -143,8 +143,12 @@ public class TriggerPagerAdapter extends FragmentPagerAdapter {
         NFC(NfcTriggerFragment.class, R.string.profile_tabs_nfc),
         /**
          * The genre fragment
+         */ 
+        TIME(TimeTriggerFragment.class, R.string.profile_tabs_time),
+        /**
+         * The playlists fragment
          */
-        TIME(TimeTriggerFragment.class, R.string.profile_tabs_time);
+        APP(AppTriggerFragment.class, R.string.profile_tabs_app);
 
         private final Class<? extends Fragment> mFragmentClass;
         private final int mNameRes;
